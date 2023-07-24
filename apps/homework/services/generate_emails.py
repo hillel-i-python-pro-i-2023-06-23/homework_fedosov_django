@@ -1,6 +1,7 @@
 from faker import Faker
 
-def generate_email(amount:int=20):
+
+def generate_email(amount: int = 20):
     fake = Faker()
 
     for _ in range(amount):
@@ -13,9 +14,9 @@ def read_emails():
     for email in generate_email():
         email_to_show = f"<li>{email}</li>"
         emails.append(email_to_show)
-    result = ''.join(emails)
+    result = "".join(emails)
     return result
+
 
 def show_emails():
     return read_emails()
-
