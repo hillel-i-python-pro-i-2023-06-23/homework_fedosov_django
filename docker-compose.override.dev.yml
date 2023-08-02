@@ -3,6 +3,8 @@ version: '3.9'
 
 services:
   app:
+    user:
+      1000:1000
     ports:
       - "8000:8000"
     command:
