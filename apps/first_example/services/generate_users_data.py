@@ -21,16 +21,17 @@ def generate_user_data() -> User:
 
     )
 
-def check_unique_user(value, unique_values_list):
-    return value not in unique_values_list
+def check_unique_user(user, unique_users_list):
+    return user not in unique_users_list
+
 
 def generate_users_data(amount: int) -> Iterator[User]:
-    unique_users_list = set()
+    unique_users = set()
     count_range = 0
     while count_range < amount:
-        unique_users_list.add(generate_user_data().user_login)
+        unique_users.add(generate_user_data().user_login)
         next_user = generate_user_data()
-        if check_unique_user(next_user, unique_users_list):
+        if check_unique_user(next_user, unique_users):
             count_range += 1
             yield next_user
 
