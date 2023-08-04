@@ -1,8 +1,5 @@
 from django.urls import path, include
-
 from . import views
-
-
 
 app_name = "first_example"
 
@@ -22,8 +19,8 @@ urlpatterns = [
         include(
             [
                 path("<int:amount>/", views.generate_users_data_view, name="generate_emails_with_amount"),
-                path("", views.generate_users_data_view, name="generate_emails")
+                path("", views.generate_users_data_view, name="generate_emails"),
             ]
-        )
-    )
+        ),
+    ),
 ]
