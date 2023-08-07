@@ -37,6 +37,3 @@ def generate_users_data(amount: int) -> Iterator[User]:
         if check_unique_user(next_user, unique_users):
             count_range += 1
             yield next_user
-
-
-print(generate_users_data(10))
