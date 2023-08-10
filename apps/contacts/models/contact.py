@@ -27,3 +27,6 @@ class Contact(models.Model):
         return f"{self.name} {self.phone_number}"
 
     __repr__ = __str__
+
+    class Meta:
+        ordering = ["-modified_at", "name"]

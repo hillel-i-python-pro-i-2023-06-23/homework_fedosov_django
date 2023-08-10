@@ -2,6 +2,12 @@
 
 {% block content %}
     <h1>Contacts</h1>
+
+<div>
+    <a href="{% url 'contacts:contacts_create' %}">
+        <button>Create</button>
+    </a>
+</div>
     <ol>
         {% for contact in object_list %}
             <li>

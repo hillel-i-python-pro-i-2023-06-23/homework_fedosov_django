@@ -17,9 +17,10 @@ COPY --chown=${USER} requirements.txt requirements.txt
 RUN pip install --upgrade pip && \
     pip install --requirement requirements.txt
 
+# Set ownership and copy files/directories from the host machine to the container's filesystem during the build process.
 COPY --chown=${USER} ./manage.py manage.py
-COPY --chown=${USER} ./core core
 COPY --chown=${USER} ./apps apps
+COPY --chown=${USER} core core
 
 USER ${USER}
 
