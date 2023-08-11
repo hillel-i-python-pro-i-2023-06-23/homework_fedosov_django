@@ -9,11 +9,11 @@ from apps.contacts.forms import GenerateForm, ContactSpecialEditForm
 from apps.contacts.models import Contact
 from apps.contacts.services.delete_contacts import delete_contacts
 from apps.contacts.services.generate_and_save_contacts import generate_and_save_contacts
-from apps.contacts.services.generate_humans import generate_contacts
 
 
 class ContactsListView(ListView):
     model = Contact
+
 
 class ContactCreateView(CreateView):
     model = Contact
@@ -23,6 +23,7 @@ class ContactCreateView(CreateView):
         # "is_auto_generated",
     )
     success_url = reverse_lazy('contacts:contacts_list')
+
 
 class ContactUpdateView(UpdateView):
     model = Contact
@@ -34,6 +35,7 @@ class ContactUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy("contacts:contacts_update", kwargs=dict(pk=self.kwargs["pk"]))
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["is_update"] = True
@@ -43,7 +45,6 @@ class ContactUpdateView(UpdateView):
 class ContactDeleteView(DeleteView):
     model = Contact
     success_url = reverse_lazy('contacts:contacts_list')
-
 
 
 def generate_contacts_view__raw_form(request):
@@ -84,7 +85,6 @@ def generate_contacts_view(request):
     )
 
 
-
 class ContactSpecialEdit(FormView):
     model = Contact
     form_class = ContactSpecialEditForm
@@ -93,12 +93,10 @@ class ContactSpecialEdit(FormView):
     def get_success_url(self):
         return reverse_lazy("contacts:contacts_special_edit", kwargs=dict(pk=self.kwargs["pk"]))
 
-
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs["instance"] = Contact.objects.get(pk=self.kwargs["pk"])
         return kwargs
-
 
     def form_valid(self, form):
         form.save()

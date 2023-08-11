@@ -3,13 +3,12 @@ import logging
 from apps.contacts.models import Contact
 
 
-def delete_contacts(is_only_auto_generated:bool=False):
+def delete_contacts(is_only_auto_generated: bool = False):
     logger = logging.getLogger("django")
 
     queryset = Contact.objects.all()
 
     logger.info(f"Current amount of humans before: {queryset.count()}")
-
 
     queryset_for_delete = queryset
     if is_only_auto_generated:

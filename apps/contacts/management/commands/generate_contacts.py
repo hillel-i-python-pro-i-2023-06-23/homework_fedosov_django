@@ -16,5 +16,3 @@ class Command(BaseCommand):
         amount: int = options["amount"]
 
         generate_and_save_contacts(amount=amount)
-
-

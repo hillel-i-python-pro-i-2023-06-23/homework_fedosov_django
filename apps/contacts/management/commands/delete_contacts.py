@@ -16,5 +16,3 @@ class Command(BaseCommand):
         is_only_auto_generated: bool = options["is_only_auto_generated"]
 
         delete_contacts(is_only_auto_generated=is_only_auto_generated)
-
-

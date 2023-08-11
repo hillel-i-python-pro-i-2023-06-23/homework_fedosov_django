@@ -2,7 +2,6 @@ from django.core.exceptions import ValidationError
 from django.db import models
 
 
-
 class Contact(models.Model):
     name = models.CharField(max_length=100)
     phone_number = models.CharField(
@@ -24,7 +23,6 @@ class Contact(models.Model):
         blank=False,
         null=False,
     )
-
 
     def __str__(self) -> str:
         return f"{self.name}"
