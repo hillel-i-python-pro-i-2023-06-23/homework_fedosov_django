@@ -1,0 +1,19 @@
+{% extends "_helpers/_base.html" %}
+
+{% block content %}
+    <h1 style="margin-top: 0;">Animals Generating</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>
+            <span>Amount</span>
+            <input type="number" name="amount" value="3" style="padding: 5px; border: 1px solid #ccc; border-radius: 3px;" />
+        </label>
+
+        <button type="submit" style="padding: 5px 10px; background-color: #007bff; color: #fff; border: none; border-radius: 3px; cursor: pointer;">Generate</button>
+    </form>
+
+    <div style="border-top: 1px solid #ccc; padding-top: 20px; margin-top: 20px;">
+        {% include "contacts/_contact_list_base.html" with contacts_list=contacts_list %}
+    </div>
+{% endblock %}

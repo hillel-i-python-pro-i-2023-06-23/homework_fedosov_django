@@ -1,24 +1,7 @@
 {% extends "_helpers/_base.html" %}
 
 {% block content %}
-    <h1>Contacts</h1>
+    <h1>Animals</h1>
 
-<div>
-    <a href="{% url 'contacts:contacts_create' %}">
-        <button>Create</button>
-    </a>
-</div>
-    <ol>
-        {% for contact in object_list %}
-            <li>
-                <span>{{ contact.pk }}</span>
-                <span> - </span>
-                <span>{{ contact.name }}</span>
-                <span> - </span>
-                <span>{{ contact.phone_number }}</span>
-                <span> - </span>
-                <span>{{ contact.modified_at }}</span>
-            </li>
-        {% endfor %}
-    </ol>
+    {% include "contacts/_contact_list_base.html"  with contacts_list=object_list %}
 {% endblock %}

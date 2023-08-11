@@ -1,12 +1,25 @@
 {% extends "_helpers/_base.html" %}
 
 {% block content %}
-    <h1>Create contact</h1>
+    <h1>
+        {% if is_update %}
+            Update
+        {% else %}
+            Create
+        {% endif %}
+        contact
+    </h1>
+
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Create</button>
+
+        <button type="submit">
+            {% if is_update %}
+                Update
+             {% else %}
+                Create
+            {% endif %}
+        </button>
     </form>
-
-
 {% endblock %}
