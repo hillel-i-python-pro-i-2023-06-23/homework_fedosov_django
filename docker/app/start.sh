@@ -12,8 +12,11 @@ set -o nounset
 set -o xtrace
 # [bash_init]-[END]
 
+# [init]-[BEGIN]
 # Apply database migrations.
 make migrate
+
+
 
 # Run application.
 python manage.py runserver 0.0.0.0:8000

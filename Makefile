@@ -72,3 +72,4 @@ migrations:
 # Migrate
 migrate:
 	@python manage.py migrate
+
