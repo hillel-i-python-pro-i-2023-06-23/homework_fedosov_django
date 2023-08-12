@@ -1,0 +1,32 @@
+<header>
+    <div><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1200px-Python-logo-notext.svg.png" alt="Мой логотип" width=100 height=auto></div>
+
+
+    <ul>
+        <li>
+            <a href="{% url 'base:home_page' %}">
+                Home
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'first_example:greetings' name=name|default:'Marina' age=age|default:28 %}">
+                Greetings
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'first_example:generate_humans' %}">
+                Generate humans
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'first_example:generate_emails' %}">
+                Django HW 11. Templates. Data generators for users.
+            </a>
+        </li>
+        <li>
+            <a href="{% url 'contacts:contacts_list' %}">
+                Django HW 12. Contacts and commands
+            </a>
+        </li>
+    </ul>
+</header>

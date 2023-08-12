@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            {% if title %}
+                {{ title }}
+            {% else %}
+                Welcome!
+            {% endif %}
+            | My Website
+        {% endblock %}
+    </title>
+    <style>
+
+
+        /* Дополнительные стили для header (можно настроить по своему усмотрению) */
+        header h1 {
+            margin: 0; /* Убираем отступы у заголовка h1 внутри header */
+        }
+        body {
+                background-image: url("https://images.wallpaperscraft.ru/image/single/fon_gradient_volna_207449_3840x2400.jpg");
+                background-repeat: no-repeat;
+                background-position: center;
+
+                background-attachment: fixed;
+
+                background-size: cover;
+
+                height: 100vh;
+
+
+                /* Устанавливаем высоту блока body (высота 100%) */
+            /* Убираем отступы для body */
+            }
+    </style>
+</head>
+
+<body>
+
+{% include "_helpers/_header.html" %}
+
+<div>
+    {% block content %}
+        <h1>Hello!</h1>
+    {% endblock %}
+</div>
+
+</body>
+</html>
